@@ -4,6 +4,7 @@ import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dream/muyu/record_history.dart';
+import 'package:flutter_dream/storage/db_storage/db_storage.dart';
 import 'package:flutter_dream/storage/sp_storage.dart';
 import 'package:uuid/uuid.dart';
 
@@ -53,7 +54,7 @@ class _MuYuPageState extends State<MuYuPage>
   int _activeAudioIndex = 0;
   String get activeAudio => audioOptions[_activeAudioIndex].src;
 
-  final List<MeritRecord> _records = [];
+  List<MeritRecord> _records = [];
   final Uuid uuid = const Uuid();
 
   @override
@@ -171,6 +172,7 @@ class _MuYuPageState extends State<MuYuPage>
       _counter += _cruRecord!.value;
 
       saveConfig();
+      DbStorage.instance.meritRecordDao.insert(_cruRecord!);
 
       // 添加功德记录
       _records.add(_cruRecord!);
@@ -196,6 +198,7 @@ class _MuYuPageState extends State<MuYuPage>
     _counter = config['counter'] ?? 0;
     _activeImageIndex = config['activeImageIndex'] ?? 0;
     _activeAudioIndex = config['activeAudioIndex'] ?? 0;
+    _records = await DbStorage.instance.meritRecordDao.query();
     setState(() {});
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dream/guess/guess_page.dart';
 import 'package:flutter_dream/muyu/muyu_page.dart';
+import 'package:flutter_dream/net_article/views/net_article_page.dart';
 import 'package:flutter_dream/paper/paper.dart';
 
 import 'app_bottom_bar.dart';
@@ -19,6 +20,7 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(label: '猜数字', icon: Icons.question_mark),
     MenuData(label: '电子木鱼', icon: Icons.my_library_music_outlined),
     MenuData(label: '白板绘制', icon: Icons.palette_outlined),
+    MenuData(label: '网络文章', icon: Icons.article_outlined),
   ];
 
   @override
@@ -37,11 +39,7 @@ class _AppNavigationState extends State<AppNavigation> {
     return PageView(
       physics: const NeverScrollableScrollPhysics(),
       controller: _ctrl,
-      children: const [
-        GuessPage(),
-        MuYuPage(),
-        Paper(),
-      ],
+      children: const [GuessPage(), MuYuPage(), Paper(), NetArticlePage()],
     );
   }
 
