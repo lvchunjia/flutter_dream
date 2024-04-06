@@ -15,13 +15,17 @@ dependencies:
   cupertino_icons: ^1.0.2
   flame_audio: ^2.1.1
   uuid: ^3.0.7
-  intl: ^0.18.1
+  flutter_localizations:
+    sdk: flutter
   shared_preferences: ^2.2.2
   sqflite: ^2.3.2
   path: ^1.9.0
   dio: ^5.4.2
   webview_flutter: ^4.7.0
   easy_refresh: ^3.3.4
+  flex_color_picker: ^3.4.1
+  flutter_bloc: ^8.1.5
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -30,6 +34,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  generate: true
 
   uses-material-design: true
 

@@ -3,6 +3,7 @@ import 'package:flutter_dream/guess/guess_page.dart';
 import 'package:flutter_dream/muyu/muyu_page.dart';
 import 'package:flutter_dream/net_article/views/net_article_page.dart';
 import 'package:flutter_dream/paper/paper.dart';
+import 'package:flutter_dream/timer/timer.dart';
 
 import 'app_bottom_bar.dart';
 
@@ -21,6 +22,7 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(label: '电子木鱼', icon: Icons.my_library_music_outlined),
     MenuData(label: '白板绘制', icon: Icons.palette_outlined),
     MenuData(label: '网络文章', icon: Icons.article_outlined),
+    MenuData(label: '秒表', icon: Icons.timer),
   ];
 
   @override
@@ -39,7 +41,13 @@ class _AppNavigationState extends State<AppNavigation> {
     return PageView(
       physics: const NeverScrollableScrollPhysics(),
       controller: _ctrl,
-      children: const [GuessPage(), MuYuPage(), Paper(), NetArticlePage()],
+      children: const [
+        GuessPage(),
+        MuYuPage(),
+        Paper(),
+        NetArticlePage(),
+        TimerPage(),
+      ],
     );
   }
 
