@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'model/time_record.dart';
+import 'package:flutter_dream/timer/timer_page/model/time_record.dart';
 
 class RecordPanel extends StatelessWidget {
   final List<TimeRecord> record;

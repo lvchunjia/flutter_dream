@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-
-enum StopWatchType {
-  none, // 初始态
-  stopped, // 已停止
-  running, // 运行中
-}
+import 'package:flutter_dream/timer/timer_page/bloc/bloc.dart';
 
 class ButtonTools extends StatelessWidget {
   final StopWatchType state;

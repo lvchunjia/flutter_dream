@@ -3,7 +3,7 @@ import 'package:flutter_dream/guess/guess_page.dart';
 import 'package:flutter_dream/muyu/muyu_page.dart';
 import 'package:flutter_dream/net_article/views/net_article_page.dart';
 import 'package:flutter_dream/paper/paper.dart';
-import 'package:flutter_dream/timer/timer.dart';
+import 'package:flutter_dream/timer/timer_page/view/timer.dart';
 
 import 'app_bottom_bar.dart';
 

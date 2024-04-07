@@ -9,15 +9,16 @@ class StopwatchWidget extends StatelessWidget {
   final Color? themeColor;
   final TextStyle? textStyle;
   final Color scaleColor;
+
   const StopwatchWidget({
-    super.key,
+    Key? key,
     required this.radius,
     required this.duration,
-    required this.secondDuration,
-    this.themeColor,
+    this.secondDuration = Duration.zero,
+    this.scaleColor = const Color(0xffDADADA),
     this.textStyle,
-    required this.scaleColor,
-  });
+    this.themeColor,
+  }) : super(key: key);
 
   TextStyle get commonStyle => TextStyle(
         fontSize: radius / 3.2,
@@ -30,16 +31,14 @@ class StopwatchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     TextStyle style = textStyle ?? commonStyle;
     Color themeColor = this.themeColor ?? Theme.of(context).primaryColor;
-
     return CustomPaint(
       painter: StopwatchPainter(
-        radius: radius,
-        duration: duration,
-        secondDuration: secondDuration,
-        themeColor: themeColor,
-        scaleColor: scaleColor,
-        textStyle: style,
-      ),
+          radius: radius,
+          duration: duration,
+          secondDuration: secondDuration,
+          themeColor: themeColor,
+          scaleColor: scaleColor,
+          textStyle: style),
       size: Size(radius * 2, radius * 2),
     );
   }
@@ -52,6 +51,7 @@ const _kStrokeWidthRate = 0.8 / 135.0;
 class StopwatchPainter extends CustomPainter {
   final Duration duration;
   final Duration secondDuration;
+
   final double radius;
   final Color themeColor;
   final Color scaleColor;
@@ -151,8 +151,11 @@ class StopwatchPainter extends CustomPainter {
       } else {
         scalePainter.color = scaleColor;
       }
-      canvas.drawLine(Offset(size.width / 2, 0),
-          Offset(size.width / 2 - scaleLineWidth, 0), scalePainter);
+      canvas.drawLine(
+        Offset(size.width / 2, 0),
+        Offset(size.width / 2 - scaleLineWidth, 0),
+        scalePainter,
+      );
       canvas.rotate(pi / 180 * 2);
     }
   }
